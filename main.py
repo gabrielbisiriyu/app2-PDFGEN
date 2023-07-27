@@ -8,7 +8,10 @@ pdf.set_auto_page_break(auto=False,margin=0)
 for imdex,row in data.iterrows(): 
     pdf.add_page() 
     pdf.set_font(family="Times",style="B",size=12,) 
-    pdf.line(10,21,200,22) 
+    # To make a line
+    for y in range(20,298,10):
+        pdf.line(10,y,200,y)
+
     pdf.cell(w=0,h=12,txt=row["Topic"] ,align="C",ln=1)   
     pdf.ln(265) 
     # SET THE FOOTER 
@@ -18,11 +21,13 @@ for imdex,row in data.iterrows():
     if row["Pages"] >1:
         for page in range(row["Pages"]-1): 
             pdf.add_page()
-            pdf.ln(275) 
+            pdf.ln(278) 
             # SET THE FOOTER 
             pdf.set_font(family="Times",style="I",size=8) 
             pdf.set_text_color(180,180,180) 
-            pdf.cell(w=0,h=10,txt=row["Topic"],align="R")
+            pdf.cell(w=0,h=10,txt=row["Topic"],align="R") 
+            for y in range(20,298,10):
+                 pdf.line(10,y,200,y) 
     
     
 pdf.output("output.pdf")
