@@ -1,6 +1,9 @@
+# THIS GENERATES PDF FROM A CSV FILE
+
 from fpdf import FPDF 
 import pandas as pd 
 data=pd.read_csv("topics 1.csv",sep=',')  
+
 
 
 pdf=FPDF(orientation='P',unit="mm",format="a4") 
